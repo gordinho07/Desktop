@@ -1,10 +1,10 @@
 <?php
     // parâmetros
     function conectar(){
-        $host = 'localhost';
-        $usuario = 'root';
-        $senha = '';
-        $bd = 'loja';
+        $host = 'fdb1032.awardspace.net	';
+        $usuario = '4050708_baseapp01';
+        $senha = 'AnjosDaGuarda2024#';
+        $bd = 'cadastro';
 
         // realizar a conexão 
         $conection = mysqli_connect($host, $usuario, $senha, $bd);

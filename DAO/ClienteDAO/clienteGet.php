@@ -1,28 +1,25 @@
 <?php 
    
 
-   function pegar_cliente($conexao){
+   function pegar_usuario($conexao){
 
-    $sql = "SELECT * FROM Clientes";
+    $sql = "SELECT * FROM cadastro";
     $res = mysqli_query($conexao, $sql) or die("Erro ao tentar consultar");
 
-    $clientes = [];
+    $usuario = [];
 
     while ($registro = mysqli_fetch_array($res)) {
-        $id = utf8_encode( $registro['ID']);
-        $nome = utf8_encode($registro['Nome']);
-        $email = utf8_encode(  $registro['Email']);
-        $telefone = utf8_encode( $registro['Telefone']);
-        $dataNascimento = utf8_encode( $registro['DataNascimento']);
-        $cpf = utf8_encode( $registro['CPF']);
-        $endereco = utf8_encode( $registro['Endereco']);
+        $nome = utf8_encode($registro['nome']);
+        $email = utf8_encode(  $registro['email']);
+        $senha = utf8_encode( $registro['senha']);
+
         
-        $novo_clientes = new Cliente($id, $nome, $email, $telefone, $dataNascimento, $cpf, $endereco);
-        array_push($clientes ,$novo_clientes);
+        $novo_usuario = new Usuario($nome, $email, $senha);
+        array_push($usuario ,$novo_usuario);
     };
     
     fecharConexao($conexao);
-    return $clientes;
+    return $usuario;
    };
 
    

@@ -5,16 +5,13 @@
             return $resp;
          }
     
-         function receberDadosCliente(){
+         function receberDadosUsuario(){
             $dados = json_decode(file_get_contents('php://input'));
             $nome = $dados->nome;
-            $endereco = $dados->endereco;
-            $telefone = $dados->telefone;
-            $cpf = $dados->cpf;
             $email = $dados->email;
-            $dataNascimento = $dados->dataNascimento;
+            $senha = $dados->senha;
     
-            $user = new Cliente("", $nome, $email, $telefone, $dataNascimento, $cpf, $endereco);
+            $user = new Usuario("", $nome, $email, $senha);
             return $user;
         }
 
